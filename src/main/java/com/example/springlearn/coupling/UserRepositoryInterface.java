@@ -1,4 +1,4 @@
-package com.example.springlearn.coupling.tight;
+package com.example.springlearn.coupling;
 
 public interface UserRepositoryInterface {
 	void save(User user);

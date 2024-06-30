@@ -1,4 +1,4 @@
-package com.example.springlearn.coupling.tight;
+package com.example.springlearn.coupling;
 
 import org.springframework.stereotype.Repository;
 

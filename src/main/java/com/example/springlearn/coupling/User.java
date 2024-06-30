@@ -1,4 +1,4 @@
-package com.example.springlearn.coupling.tight;
+package com.example.springlearn.coupling;
 
 public class User {
 	private String name;
