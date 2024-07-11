@@ -1,3 +1,4 @@
+/*
 package com.example.springlearn.autowired;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ public class DIBean {
 
 	@Autowired
 	// 오토와이어링할 수 없습니다. 'MyInterface' 타입의 bean을 찾을 수 없습니다. 뜨는 이유?
-	public DIBean(MyInterface myInterface) {
+	public DIBean( MyInterface myInterface) {
 		this.myInterface = myInterface;
 	}
 
@@ -24,4 +25,4 @@ public class DIBean {
 		DIBean diBean = new DIBean(new ImplBean1());
 		diBean.executeTask();
 	}
-}
+}*/
