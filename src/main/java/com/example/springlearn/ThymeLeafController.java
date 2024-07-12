@@ -32,7 +32,7 @@ public class ThymeLeafController {
 	@GetMapping("/mapping2")
 	// ?name=값 ← 여기서 값이 아래 파라미터 name에 들어감
 	// @RequestParam에서 name2로 바꾸면 ?name2=값 ← 이렇게 해야 함
-	public String mapping(@RequestParam("name") String name, Model model) {
+	public String mapping2(@RequestParam("name") String name, Model model) {
 		model.addAttribute("text", "동적 페이지");
 		model.addAttribute("name", name);
 		return "index";
