@@ -12,7 +12,7 @@ public class ThymeLeafController {
 	@Value("${spring.application.name}")
 	private String appName;
 
-	@GetMapping("/index.html")
+	@GetMapping("/index")
 	public String index(Model model) {
 		model.addAttribute("text", "index.html");
 		model.addAttribute("name", appName);
