@@ -6,8 +6,6 @@
     <title>My Spring Boot Thymeleaf</title>
 </head>
 <body>
-<!--------------- 공통 --------------->
-
 <!--------------- Thymeleaf 문법: 변수 표현식 --------------->
 <!-- 문자열 "Syntax: "와 서버(모델)에서 전달된 syntax 변수 값을 연결하여 <p>태그에 삽입 -->
 <p th:text="'Syntax: ' + ${syntax}"></p>
@@ -15,8 +13,6 @@
 <p th:text="'Application: ' + ${app}"></p>
 <!-- <p th:text="'Name: ' + ${name}"></p> -->
 <!-- <p th:text="'Text: ' + ${text}"></p> -->
-
-<!--------------- 공통 --------------->
 
 <!--------------- Thymeleaf 문법: 선택 변수 표현식 --------------->
 <!-- user 객체를 사용하는 div -->
@@ -36,6 +32,9 @@
     <p th:unless="${user.age >= 30}">해당 유저는 30세 미만입니다.</p>
 </div>
 
-
+<!--------------- Thymeleaf 문법: 반복문 --------------->
+<ul th:each="item : ${iterData}">
+    <li th:text="${item}"></li>
+</ul>
 </body>
 </html>

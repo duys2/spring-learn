@@ -54,7 +54,7 @@ public class ThymeLeafController {
 		model.addAttribute("file", "index.html");
 		model.addAttribute("app", appName);
 
-		User user = new User("HGD", "hgd@naver.com", 30);
+		User user = new User("syntax2", "mapping@naver.com", 30);
 		model.addAttribute("user", user);
 
 		return "index";
@@ -67,8 +67,24 @@ public class ThymeLeafController {
 		model.addAttribute("file", "index.html");
 		model.addAttribute("app", appName);
 
-		User user = new User("HGD", "hgd@naver.com", 23);
+		User user = new User("syntax3", "mapping@naver.com", 23);
 		model.addAttribute("user", user);
+
+		return "index";
+	}
+
+	/* --------------- SpringBoot + Thymeleaf 문법: 반복문 (Iteration) --------------- */
+	@GetMapping("/syntax4")
+	public String syntax4(Model model) {
+		model.addAttribute("syntax", "반복문 (Iteration)");
+		model.addAttribute("file", "index.html");
+		model.addAttribute("app", appName);
+
+		User user = new User("syntax4", "mapping@naver.com", 47);
+		model.addAttribute("user", user);
+
+		int[] iterData = {1, 2, 3, 4, 5};
+		model.addAttribute("iterData", iterData);
 
 		return "index";
 	}
@@ -77,6 +93,11 @@ public class ThymeLeafController {
 	@GetMapping("/syntax")
 	public String syntax(Model model) {
 		model.addAttribute("syntax", "");
+		model.addAttribute("file", "index.html");
+		model.addAttribute("app", appName);
+
+		User user = new User("", "mapping@naver.com", 30);
+		model.addAttribute("user", user);
 
 		return "index";
 	}
