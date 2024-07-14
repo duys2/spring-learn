@@ -36,5 +36,12 @@
 <ul th:each="item : ${iterData}">
     <li th:text="${item}"></li>
 </ul>
+
+<!--------------- Thymeleaf 문법: 주석 --------------->
+<!--/* 이 주석은 Thymeleaf에서 처리되지 않습니다. */-->
+
+<!--------------- Thymeleaf 문법: 속성 설정 --------------->
+<a th:href="@{/syntax5}">index2.html 페이지로 이동</a>
+
 </body>
 </html>

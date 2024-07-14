@@ -89,6 +89,16 @@ public class ThymeLeafController {
 		return "index";
 	}
 
+	/* --------------- SpringBoot + Thymeleaf 문법: 속성 설정 (Attribute Modification) --------------- */
+	@GetMapping("/syntax5")
+	public String syntax5(Model model) {
+		model.addAttribute("syntax", "속성 설정 (Attribute Modification)");
+		model.addAttribute("file", "index.html");
+		model.addAttribute("app", appName);
+
+		return "index2";
+	}
+
 	/* --------------- SpringBoot + Thymeleaf 문법:  --------------- */
 	@GetMapping("/syntax")
 	public String syntax(Model model) {
