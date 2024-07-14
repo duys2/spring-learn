@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.springlearn.user.User;
+
 @Controller
 public class ThymeLeafController {
 	/* --------------- 애플리케이션 이름 주입 --------------- */
@@ -45,12 +47,47 @@ public class ThymeLeafController {
 		return "index";  // html 파일명
 	}
 
-	@GetMapping("/mapping2")
+	/* --------------- SpringBoot + Thymeleaf 문법: 선택 변수 표현식 (Selection Variable Expressions) --------------- */
+	@GetMapping("/syntax2")
+	public String syntax2(Model model) {
+		model.addAttribute("syntax", "선택 변수 표현식 (Selection Variable Expressions)");
+		model.addAttribute("file", "index.html");
+		model.addAttribute("app", appName);
+
+		User user = new User("HGD", "hgd@naver.com", 30);
+		model.addAttribute("user", user);
+
+		return "index";
+	}
+
+	/* --------------- SpringBoot + Thymeleaf 문법: 조건문 (Conditional Statements) --------------- */
+	@GetMapping("/syntax3")
+	public String syntax3(Model model) {
+		model.addAttribute("syntax", "조건문 (Conditional Statements)");
+		model.addAttribute("file", "index.html");
+		model.addAttribute("app", appName);
+
+		User user = new User("HGD", "hgd@naver.com", 23);
+		model.addAttribute("user", user);
+
+		return "index";
+	}
+
+	/* --------------- SpringBoot + Thymeleaf 문법:  --------------- */
+	@GetMapping("/syntax")
+	public String syntax(Model model) {
+		model.addAttribute("syntax", "");
+
+		return "index";
+	}
+
+	@GetMapping("/mapping")
 	// ?name=값 ← 여기서 값이 아래 파라미터 name에 들어감
 	// @RequestParam에서 name2로 바꾸면 ?name2=값 ← 이렇게 해야 함
-	public String mapping2(@RequestParam("name") String name, Model model) {
+	public String mapping(@RequestParam("name") String name, Model model) {
 		model.addAttribute("text", "동적 페이지");
 		model.addAttribute("name", name);
+
 		return "index";
 	}
 }
