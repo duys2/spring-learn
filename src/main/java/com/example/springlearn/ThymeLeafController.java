@@ -96,7 +96,8 @@ public class ThymeLeafController {
 		model.addAttribute("file", "index.html");
 		model.addAttribute("app", appName);
 
-		return "index2";
+		// "index2"라는 이름의 뷰(일반적으로 index2.html)를 찾아 렌더링 (index2.html로 이동)
+		return "index2"; // 경로는 src/main/resources/templates/index2.html이 됨
 	}
 
 	/* --------------- SpringBoot + Thymeleaf 문법:  --------------- */
