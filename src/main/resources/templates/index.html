@@ -6,7 +6,11 @@
     <title>My Spring Boot Thymeleaf</title>
 </head>
 <body>
-    <p th:text="'Text: ' + ${text}"></p>
-    <p th:text="'Name: ' + ${name}"></p>
+    <!-- 문자열 "Syntax: "와 서버(모델)에서 전달된 syntax 변수 값을 연결하여 <p>태그에 삽입 -->
+    <p th:text="'Syntax: ' + ${syntax}"></p>
+    <p th:text="'File: ' + ${file}"></p>
+    <p th:text="'Application: ' + ${app}"></p>
+    <!-- <p th:text="'Text: ' + ${text}"></p> -->
+    <!-- <p th:text="'Name: ' + ${name}"></p> -->
 </body>
 </html>
