@@ -43,5 +43,11 @@
 <!--------------- Thymeleaf 문법: 속성 설정 --------------->
 <a th:href="@{/syntax5}">index2.html 페이지로 이동</a>
 
+<!--------------- Thymeleaf 문법: 폼 바인딩 --------------->
+<form th:action="@{/syntax6}" method="post">
+    <input type="text" name="userName"/>
+    <input type="email" name="email"/>
+    <button type="submit">저장</button>
+</form>
 </body>
 </html>

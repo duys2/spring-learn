@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.springlearn.user.User;
@@ -42,6 +44,9 @@ public class ThymeLeafController {
 		model.addAttribute("file", "index.html");
 		// "app"이라는 이름으로 appName변수의 값을 모델에 추가: 이를 통해 뷰 템플릿에서 ${app}으로 appName값에 접근 가능
 		model.addAttribute("app", appName);
+
+		User user = new User("syntax1", "mapping@naver.com", 15);
+		model.addAttribute("user", user);
 
 		// "index"라는 이름의 뷰 템플릿을 반환 (실제로는 index.html 파일을 찾아 렌더링)
 		return "index";  // html 파일명
@@ -93,24 +98,24 @@ public class ThymeLeafController {
 	@GetMapping("/syntax5")
 	public String syntax5(Model model) {
 		model.addAttribute("syntax", "속성 설정 (Attribute Modification)");
-		model.addAttribute("file", "index.html");
+		model.addAttribute("file", "index2.html");
 		model.addAttribute("app", appName);
 
 		// "index2"라는 이름의 뷰(일반적으로 index2.html)를 찾아 렌더링 (index2.html로 이동)
 		return "index2"; // 경로는 src/main/resources/templates/index2.html이 됨
 	}
 
-	/* --------------- SpringBoot + Thymeleaf 문법:  --------------- */
-	@GetMapping("/syntax")
-	public String syntax(Model model) {
-		model.addAttribute("syntax", "");
-		model.addAttribute("file", "index.html");
+	/* --------------- SpringBoot + Thymeleaf 문법: 폼 바인딩 (Form Binding) --------------- */
+	@PostMapping("/syntax6")
+	public String syntax6(@ModelAttribute User user, Model model) {
+		model.addAttribute("syntax", "폼 바인딩 (Form Binding)");
+		model.addAttribute("file", "index2.html");
 		model.addAttribute("app", appName);
 
-		User user = new User("", "mapping@naver.com", 30);
-		model.addAttribute("user", user);
+		System.out.println("유저의 이름은 " + user.getUserName() + "입니다.");
+		System.out.println("유저의 이메일은 " + user.getEmail() + "입니다.");
 
-		return "index";
+		return "index2";
 	}
 
 	@GetMapping("/mapping")
