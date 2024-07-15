@@ -114,8 +114,8 @@ public class ThymeLeafController {
 		model.addAttribute("file", "index2.html");
 		model.addAttribute("app", appName);
 
-		System.out.println("유저의 이름은 " + user.getUserName() + "입니다.");
-		System.out.println("유저의 이메일은 " + user.getEmail() + "입니다.");
+		System.out.println("유저 이름: " + user.getUserName());
+		System.out.println("유저 이메일: " + user.getEmail());
 
 		return "index2";
 	}
