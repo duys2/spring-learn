@@ -45,7 +45,9 @@ public class ThymeLeafController {
 		// "app"이라는 이름으로 appName변수의 값을 모델에 추가: 이를 통해 뷰 템플릿에서 ${app}으로 appName값에 접근 가능
 		model.addAttribute("app", appName);
 
+		// User 객체 생성: 이름 "syntax1", 이메일 "mapping@naver.com", 나이 15
 		User user = new User("syntax1", "mapping@naver.com", 15);
+		// 생성한 User 객체를 "user"라는 이름으로 모델에 추가하여 뷰에서 사용할 수 있게 함
 		model.addAttribute("user", user);
 
 		// "index"라는 이름의 뷰 템플릿을 반환 (실제로는 index.html 파일을 찾아 렌더링)
