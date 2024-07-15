@@ -18,7 +18,7 @@
 <!-- user 객체를 사용하는 div -->
 <div th:object="${user}">
     <!-- *{} 문법을 사용하여 user 객체의 속성에 직접 접근 -->
-    <p>이름: <span th:text="*{username}"></span></p> <!-- user.username 출력 -->
+    <p>이름: <span th:text="*{userName}"></span></p> <!-- user.username 출력 -->
     <p>이메일: <span th:text="*{email}"></span></p> <!-- user.email 출력 -->
     <p>나이: <span th:text="*{age}"></span></p> <!-- user.age 출력 -->
 </div>
