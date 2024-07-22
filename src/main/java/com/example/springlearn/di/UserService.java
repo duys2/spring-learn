@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.springlearn.coupling.UserRepository;
 
-@Service
+@Service("diUserService")
 public class UserService {
 	/* ---------------- field 주입 방식 ----------------*/
     /*
