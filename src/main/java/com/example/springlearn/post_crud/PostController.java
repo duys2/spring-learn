@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 // 이 클래스는 Spring MVC 컨트롤러임을 나타냄
-@Controller
+@Controller("crudPostController")
 // 이 컨트롤러의 모든 메서드에 대한 기본 URL 경로를 "/posts"로 설정
 @RequestMapping("/posts")
 public class PostController {
