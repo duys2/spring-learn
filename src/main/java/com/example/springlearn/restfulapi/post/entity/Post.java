@@ -1,9 +1,11 @@
 package com.example.springlearn.restfulapi.post.entity;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import com.example.springlearn.restfulapi.comment.entity.Comment;
+import com.example.springlearn.restfulapi.post.dto.PostDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,4 +48,10 @@ public class Post {
 
 	@OneToMany(mappedBy = "post")
 	private List<Comment> comments;
+
+	public void updatePost(PostDTO postDTO) {
+		this.title = postDTO.getTitle();
+		this.content = postDTO.getContent();
+		this.updateAt = LocalDateTime.now();
+	}
 }

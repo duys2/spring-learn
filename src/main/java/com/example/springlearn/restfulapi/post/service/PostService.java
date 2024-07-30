@@ -1,6 +1,7 @@
 package com.example.springlearn.restfulapi.post.service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -42,5 +43,18 @@ public class PostService {
 		Optional<Post> posts = postRepository.findById(id);
 
 		return posts.map(PostDTO::toDTO);
+	}
+
+	@Transactional
+	public PostDTO updatePost(Long postId, PostDTO postDTO) {
+		Post post = postRepository.findById(postId).orElse(null);
+
+		if (post != null) {
+			post.updatePost(postDTO);
+
+			postRepository.save(post);
+		}
+
+		return PostDTO.toDTO(Objects.requireNonNull(post)); // Objects.requireNonNull(): Null 처리 메서드
 	}
 }
