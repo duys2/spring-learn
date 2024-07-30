@@ -57,4 +57,14 @@ public class PostService {
 
 		return PostDTO.toDTO(Objects.requireNonNull(post)); // Objects.requireNonNull(): Null 처리 메서드
 	}
+
+	@Transactional
+	public boolean deletePost(Long postId) {
+		return postRepository.findById(postId)
+			.map(post -> {
+				postRepository.delete(post);
+				return true;
+			})
+			.orElse(false);
+	}
 }
