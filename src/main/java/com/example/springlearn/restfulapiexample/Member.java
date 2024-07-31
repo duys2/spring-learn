@@ -1,4 +1,4 @@
-package com.example.springlearn.restful_api;
+package com.example.springlearn.restfulapiexample;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

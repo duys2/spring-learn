@@ -1,4 +1,4 @@
-package com.example.springlearn.restful_api;
+package com.example.springlearn.restfulapiexample;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.springlearn.post_crud;
+package com.example.springlearn.postcrud;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
