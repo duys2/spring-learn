@@ -6,8 +6,7 @@ import java.util.List;
 import com.example.springlearn.restfulapi.comment.dto.CommentDTO;
 import com.example.springlearn.restfulapi.post.entity.Post;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 @Builder
 @Getter

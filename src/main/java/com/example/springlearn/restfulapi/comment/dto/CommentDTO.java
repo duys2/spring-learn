@@ -5,8 +5,7 @@ import java.time.LocalDateTime;
 import com.example.springlearn.restfulapi.comment.entity.Comment;
 import com.example.springlearn.restfulapi.post.entity.Post;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 @Builder
 @Getter
