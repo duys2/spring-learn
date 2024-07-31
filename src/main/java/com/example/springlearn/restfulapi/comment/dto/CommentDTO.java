@@ -11,7 +11,7 @@ import lombok.Getter;
 @Builder
 @Getter
 public class CommentDTO {
-	private Long id;
+	private Long commentId;
 	private Long postId;
 	private String content;
 	private String author;
@@ -20,8 +20,8 @@ public class CommentDTO {
 
 	public static CommentDTO toDTO(Comment comment) {
 		return CommentDTO.builder()
-			.id(comment.getId())
-			.postId(comment.getId())
+			.commentId(comment.getCommentId())
+			.postId(comment.getPost().getPostId())
 			.content(comment.getContent())
 			.author(comment.getAuthor())
 			.createAt(comment.getCreateAt())
@@ -29,14 +29,14 @@ public class CommentDTO {
 			.build();
 	}
 
-	public static Comment toComment(CommentDTO commentDTO, Post post) {
+	public static Comment toEntity(CommentDTO commentDTO, Post post) {
 		return Comment.builder()
-			.id(commentDTO.id)
+			.commentId(commentDTO.commentId)
 			.post(post)
 			.content(commentDTO.content)
 			.author(commentDTO.author)
-			.createAt(commentDTO.createAt)
-			.updateAt(commentDTO.updateAt)
+			.createAt(commentDTO.getCommentId() == null ? LocalDateTime.now() : commentDTO.getCreateAt())
+			.updateAt(commentDTO.getCommentId() == null ? null : LocalDateTime.now())
 			.build();
 	}
 }

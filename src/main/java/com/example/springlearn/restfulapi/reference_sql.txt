@@ -1,0 +1,15 @@
+-- 1. 외래 키 제약 조건 제거
+ALTER TABLE comment DROP FOREIGN KEY [FKs1slvnkuemjsq2kj4h3vhx7i1]; // 이거는 외래키 관련
+
+-- 2. post 테이블의 id 컬럼 이름 변경
+ALTER TABLE post CHANGE COLUMN id post_id INT AUTO_INCREMENT;
+
+-- 3. comment 테이블의 post_id 컬럼 이름도 변경 (필요한 경우)
+ALTER TABLE comment CHANGE COLUMN post_id post_id INT;
+
+-- 4. 외래 키 제약 조건 다시 추가
+ALTER TABLE comment
+ADD CONSTRAINT FK_comment_post
+FOREIGN KEY (post_id) REFERENCES post(post_id);
+
+외래키로 참조되는 컬럼(키)의 이름 변경 id -> post_id

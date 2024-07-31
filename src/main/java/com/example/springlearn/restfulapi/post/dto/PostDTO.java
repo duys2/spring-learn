@@ -12,7 +12,7 @@ import lombok.Getter;
 @Builder
 @Getter
 public class PostDTO {
-	private Long id;
+	private Long postId;
 	private String title;
 	private String content;
 	private String author;
@@ -24,7 +24,7 @@ public class PostDTO {
 	public static PostDTO toDTO(Post post) {
 		return PostDTO
 			.builder()
-			.id(post.getId())
+			.postId(post.getPostId())
 			.title(post.getTitle())
 			.content(post.getContent())
 			.author(post.getAuthor())
@@ -36,13 +36,13 @@ public class PostDTO {
 	public static Post toEntity(PostDTO postDTO) {
 		return Post
 			.builder()
-			.id(postDTO.getId())
+			.postId(postDTO.getPostId())
 			.title(postDTO.getTitle())
 			.content(postDTO.getContent())
 			.author(postDTO.getAuthor())
 			// null 처리
-			.createAt(postDTO.getId() == null ? LocalDateTime.now() : postDTO.getCreateAt())
-			.updateAt(postDTO.getId() == null ? null : LocalDateTime.now())
+			.createAt(postDTO.getPostId() == null ? LocalDateTime.now() : postDTO.getCreateAt())
+			.updateAt(postDTO.getPostId() == null ? null : LocalDateTime.now())
 			.build();
 	}
 }

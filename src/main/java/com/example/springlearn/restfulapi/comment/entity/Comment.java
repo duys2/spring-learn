@@ -2,6 +2,7 @@ package com.example.springlearn.restfulapi.comment.entity;
 
 import java.time.LocalDateTime;
 
+import com.example.springlearn.restfulapi.comment.dto.CommentDTO;
 import com.example.springlearn.restfulapi.post.entity.Post;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -17,8 +18,8 @@ import lombok.*;
 public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false)
-	private Long id;
+	@Column(name = "comment_id", nullable = false)
+	private Long commentId;
 
 	@Column(name = "content", nullable = false)
 	private String content;
@@ -36,4 +37,9 @@ public class Comment {
 	@JoinColumn(name = "post_id")
 	@JsonIgnore
 	private Post post;
+
+	public void updateComment(CommentDTO commentDto) {
+		this.content = commentDto.getContent();
+		this.updateAt = LocalDateTime.now();
+	}
 }

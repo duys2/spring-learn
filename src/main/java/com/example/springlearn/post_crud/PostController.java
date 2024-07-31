@@ -61,8 +61,8 @@ public class PostController {
 
 	/* --------------- 게시글 상세 조회 --------------- */
 	// GET 요청으로 특정 ID의 게시글을 조회하는 메서드
-	@GetMapping("/{id}") // /posts/{id} 형식의 URL 매핑
-	// @PathVariable 어노테이션을 사용하여 URL의 {id}부분을 id 매개변수 받아 옴
+	@GetMapping("/{id}") // /posts/{commentId} 형식의 URL 매핑
+	// @PathVariable 어노테이션을 사용하여 URL의 {commentId}부분을 commentId 매개변수 받아 옴
 	public String detail(@PathVariable Long id, Model model) {
 		// posts 리스트에서 주어진 id와 일치하는 게시글을 찾음
 		Post post = posts.stream()
@@ -71,7 +71,7 @@ public class PostController {
 			// 일치하는 첫 번째 게시글 선택
 			.findFirst()
 			// 일치하는 게시글이 없으면 예외 발생
-			.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id: " + id));
+			.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. commentId: " + id));
 
 		// 찾은 게시글을 model에 추가하여 view에서 사용할 수 있게 함
 		model.addAttribute("post", post);
@@ -82,14 +82,14 @@ public class PostController {
 
 	/* --------------- 게시글 수정 --------------- */
 	// 게시글 수정 폼을 보여주는 메서드
-	@GetMapping("/{id}/edit") // /posts/{id}/edit 형식의 URL 매핑
+	@GetMapping("/{id}/edit") // /posts/{commentId}/edit 형식의 URL 매핑
 	public String editForm(@PathVariable("id") Long id, Model model) {
 		// posts 리스트에서 주어진 id와 일치하는 게시글을 찾고
 		Post post = posts.stream()
 			.filter(p -> p.getId().equals(id))
 			.findFirst()
 			// 일치하는 게시글이 없으면 예외를 발생시킴
-			.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id: " + id));
+			.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. commentId: " + id));
 
 		// 찾은 게시글을 model에 추가하여 view에서 사용할 수 있게 함
 		model.addAttribute("post", post);
@@ -106,7 +106,7 @@ public class PostController {
 			.filter(p -> p.getId().equals(id))
 			.findFirst()
 			// 일치하는 게시글이 없으면 예외를 발생시킴
-			.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id: " + id));
+			.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. commentId: " + id));
 
 		// 찾은 게시글의 제목과 내용을 업데이트
 		post.setTitle(updatedPost.getTitle());

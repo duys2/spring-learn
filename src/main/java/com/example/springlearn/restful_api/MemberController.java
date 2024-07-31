@@ -36,7 +36,7 @@ public class MemberController {
 		return member;
 	}
 
-	// GET /api/members/{id}
+	// GET /api/members/{commentId}
 	@GetMapping("/{id}")
 	// GET 요청을 처리하여 특정 ID에 해당하는 사용자 반환, 경로 변수로 사용자 ID를 받는다.
 	public Member getMemberById(@PathVariable("id") Long id) {
@@ -47,7 +47,7 @@ public class MemberController {
 			.orElseThrow(() -> new IllegalArgumentException("멤버를 찾을 수 없습니다. Id: " + id));
 	}
 
-	// PUT /api/members/{id}
+	// PUT /api/members/{commentId}
 	@PutMapping("/{id}")
 	// PUT 요청을 처리하여 특정 ID에 해당하는 사용자 정보를 업데이트하고 반환
 	// 경로 변수로 사용자 ID를 받고, 요청 본문에서 업데이트할 사용자 정보를 받는다.
@@ -63,7 +63,7 @@ public class MemberController {
 		return member;
 	}
 
-	// DELETE /api/members/{id}
+	// DELETE /api/members/{commentId}
 	@DeleteMapping("/{id}")
 	// DELETE 요청을 처리하여 특정 ID에 해당하는 사용자 삭제, 경로 변수로 사용자 ID를 받는다.
 	public void deleteMember(@PathVariable("id") Long id) {
